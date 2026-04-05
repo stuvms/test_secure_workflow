@@ -1,0 +1,13 @@
+name: Run Secret Detection
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  secret-detection:
+    uses: stuvms/secure_scanning/.github/workflows/secret-detection.yml@main
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
